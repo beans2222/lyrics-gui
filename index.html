@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Product+Sans:100,300,400,500,700,900|Product+Sans+Black">
+    <title>Lyrics Search</title>
+    <style>
+        body {
+            background-color:#171717;
+            color: #ffffff;
+        }
+        input{
+            border-radius:3px;
+            border-color:red;
+            width:350px;
+            font-size:large;
+            margin-bottom:10px;
+        }
+
+        #recents_display {
+            overflow-x:auto;
+            white-space:nowrap;
+            
+        }
+        button {
+            height:50px;
+            font-size:large;
+            font-family:'Product Sans';
+            color:#171717;
+            font-weight:bolder;
+            border-color:#007481
+        }
+        .loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: #FF3D00;
+    border-radius: 50%;
+    display: none;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+    </style>
+</head>
+<body style="overflow-wrap: break-word;">
+    <input id="search" onkeyup="searchFor(document.querySelector('#search').value, true);" placeholder="search">
+    <div id="recents_display"></div>
+    <button onclick="clearHistory()" style="border-color:rgb(255, 0, 0)">Clear Recent History</button>
+    <div></div>
+    <span class="loader"></span>
+
+    <h1 style="font-family:'Product Sans';margin-bottom:1px;" id="songname"></h1>
+    <h2 style="font-family:'Product Sans';margin-top:1px;font-size:medium;" id="artist"></h2>
+    <div style="font-family:'Product Sans';" id="sigma"></div>
+    <script src="script.js"></script>
+</body>
+</html>
