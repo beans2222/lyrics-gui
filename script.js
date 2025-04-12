@@ -23,7 +23,7 @@ function searchFor(query, searched) {
             console.log(xhr.responseText);
             if (JSON.parse(xhr.responseText).length>0) {
         
-        document.querySelector("#sigma").innerHTML=JSON.parse(xhr.responseText)[0]["plainLyrics"].replaceAll("\n","<br>");
+        document.querySelector("#lyrics").innerHTML=JSON.parse(xhr.responseText)[0]["plainLyrics"].replaceAll("\n","<br>");
         document.querySelector("#songname").innerHTML=JSON.parse(xhr.responseText)[0]["name"];
         document.querySelector("#artist").innerHTML=JSON.parse(xhr.responseText)[0]["artistName"];
         document.querySelector(".loader").style.display="none";
@@ -35,7 +35,7 @@ function searchFor(query, searched) {
         for (i=0; i < recents.length; i++) {
             document.getElementById("recents_display").innerHTML+=`<button onclick="document.getElementById('search').value='${recents.toReversed()[i]}';searchFor('${recents.toReversed()[i]}', false)">${recents.toReversed()[i]}</button>`;
         }}
-    } else {document.querySelector(".loader").style.display="none"; document.querySelector("#songname").innerHTML="no results :("; document.querySelector("#artist").innerHTML=""; document.querySelector("#sigma").innerHTML="";}
+    } else {document.querySelector(".loader").style.display="none"; document.querySelector("#songname").innerHTML="no results :("; document.querySelector("#artist").innerHTML=""; document.querySelector("#lyrics").innerHTML="";}
         } else {
         console.error('Request failed with status:', xhr.status);
         }
